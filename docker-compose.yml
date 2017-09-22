@@ -1,0 +1,22 @@
+# docker run --rm -d -p 8765:5432 --name pgdock -e POSTGRES_USER=pureudonhk -e POSTGRES_PASSWORD=pureudonhk postgres
+
+version: '3'
+
+services:
+
+  db:
+    container_name: pgdock
+    volumes:
+      - ./db_data/var/bin/postgresql/:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: pureudonhk
+      POSTGRES_PASSWORD: pureudonhk
+
+
+# docker-compose up -d
+# docker-compose down
+# docker-compose down --volumes 
